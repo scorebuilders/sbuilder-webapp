@@ -2,21 +2,20 @@ import '../stylesheets/main.less';
 
 import React from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 
-// import * as Actions from '../actions/';
+import { bindActionCreators } from 'redux';
 
-import Button from './button';
+import * as Actions from '../actions/';
 
 const Main = React.createClass({
-  onClick() {
-    console.log('Woot.');
-  },
   render() {
+    const actions = bindActionCreators(Actions, this.props.dispatch);
+
     return (
       <div>
-        <h2>Hi Pete!</h2>
-        <Button onClick={this.onClick}/>
+        <h2>Welcome Header!</h2>
+        <button onClick={actions.requestSession}>Get Started!</button>
+        {this.props.session}
       </div>
     );
   }

@@ -36,12 +36,14 @@
     "babel-runtime": "^5.8.20",
     "domready": "^1.0.8",
     "immutable": "^3.7.5",
+    "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.3",
     "lodash": "^3.10.1",
     "react": "^0.13.3",
     "react-redux": "^2.1.2",
     "redux": "^3.0.0",
     "redux-localstorage": "^0.4.0",
-    "redux-logger": "^1.0.8"
+    "redux-logger": "^1.0.8",
+    "redux-thunk": "^1.0.3"
   }
 }

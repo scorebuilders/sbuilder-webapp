@@ -1,19 +1,14 @@
-import {combineReducers} from 'redux';
-
 import {
-  AN_ACTION
+  REQUEST_SESSION_SUCCESS
 } from '../actions';
 
 function reducer(state = {}, action) {
   switch (action.type) {
-  case AN_ACTION:
-    return state;
+  case REQUEST_SESSION_SUCCESS:
+    return { session: action.session };
   default:
     return state;
   }
 }
 
-export default combineReducers({
-  app: reducer
-  // Other recuders go here
-});
+export default reducer;
