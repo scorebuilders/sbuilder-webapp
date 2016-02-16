@@ -6,16 +6,6 @@ import { browserHistory } from 'react-router';
 */
 
 const Welcome = React.createClass({
-  createSession() {
-    fetch('http://localhost:3000/api/session/new')
-    .then(resp => resp.json())
-    .then(resp =>{
-      browserHistory.push('/s/' + resp.sessionId);
-    })
-    .catch((resp) => {
-      console.log('failtown', resp);
-    });
-  },
   render() {
     return (
       <div>

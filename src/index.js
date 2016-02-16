@@ -9,6 +9,22 @@ import Discuss from './components/Discuss';
 import NotFound from './components/NotFound';
 
 const App = React.createClass({
+  getInitialState() {
+    return {
+      sessionId: null
+    }
+  },
+  createSession() {
+    fetch('http://localhost:3000/api/session/new')
+    .then(resp => resp.json())
+    .then(resp => {
+      this.setState({ sessionId: resp.sessionId });
+      browserHistory.push('/s/' + resp.sessionId);
+    })
+    .catch((resp) => {
+      console.log('failtown', resp);
+    });
+  },
   render() {
     return (
       <div className="layout-wrapper">
