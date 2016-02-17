@@ -27,8 +27,8 @@ const Score = React.createClass({
     })
     .then(() => {
       browserHistory.push('/d/' + this.props.params.sessionId);
-    }).catch(resp => {
-      console.log(resp, 'a bad thing happened');
+    }).catch(() => {
+      // console.log(resp, 'a bad thing happened');
     });
   },
   render() {

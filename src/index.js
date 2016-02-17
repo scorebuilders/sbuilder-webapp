@@ -23,8 +23,8 @@ const App = React.createClass({
       this.setState({ sessionId: resp.sessionId });
       browserHistory.push('/s/' + resp.sessionId);
     })
-    .catch((resp) => {
-      console.log('failtown', resp);
+    .catch(() => {
+      // console.log('failtown', resp);
     });
   },
   render() {
