@@ -14,6 +14,9 @@ module.exports = {
   },
   debug: true,
   devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true
+  },
   module: {
     preLoaders: [{
       test: /\.js$/,
