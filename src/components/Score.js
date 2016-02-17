@@ -1,9 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
-/**
-  initial view, "go" button
-*/
+import ScoreInput from './ScoreInput.js';
 
 const Score = React.createClass({
   submitScores() {
@@ -12,7 +10,9 @@ const Score = React.createClass({
   render() {
     return (
       <div>
-        <p>"score" page where you input scores & comments</p>
+        <ScoreInput scope="own"/>
+        <ScoreInput scope="team"/>
+        <ScoreInput scope="company"/>
         <button onClick={this.submitScores}>I'm Finished</button>
       </div>
     );

@@ -1,9 +1,4 @@
 import React from 'react';
-// import { browserHistory } from 'react-router';
-
-/**
-  initial view, "go" button
-*/
 
 const Welcome = React.createClass({
   session() {
