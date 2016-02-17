@@ -7,8 +7,7 @@ import { browserHistory } from 'react-router';
 
 const Score = React.createClass({
   submitScores() {
-    // where does sessionId come from?
-    browserHistory.push('/d/' + sessionId);
+    browserHistory.push('/d/' + this.props.params.sessionId);
   },
   render() {
     return (

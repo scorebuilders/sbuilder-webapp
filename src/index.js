@@ -12,7 +12,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       sessionId: null
-    }
+    };
   },
   createSession() {
     fetch('http://localhost:3000/api/session/new')
@@ -29,7 +29,8 @@ const App = React.createClass({
     return (
       <div className="layout-wrapper">
         <header>Score Builder</header>
-        {this.props.children}
+        {this.props.children && React.cloneElement(this.props.children,
+          {createSession: this.createSession})}
       </div>
     );
   }
