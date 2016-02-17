@@ -12,20 +12,17 @@ const sliderValues = {
 const ScoreInput = React.createClass({
   updateScoreLabel(e) {
     const labelId = this.props.scope + '_label';
-    // console.log(sliderValues[e.target.value], this.props.scope, 'updating score label!');
     document.getElementById(labelId).textContent = sliderValues[e.target.value];
   },
   render() {
     return (
-      <div>
-        <div className="scope-label">Score your {this.props.scope} work.</div>
-        <label id={this.props.scope + '_label'}>OK</label>
-        <input className="score-picker"
-          id={this.props.scope + '_score'}
-          type="range" min="1" max="5"
-          onChange={this.updateScoreLabel} />
-        <label className="helptext">Why did you choose that score?</label>
-        <textarea className="score-comment" id={this.props.scope + '_comment'}></textarea>
+      <div className="scope-input">
+        <div className="score-block scope-label">Score your <strong>{this.props.scope}</strong> work.</div>
+        <input className="score-block score-picker" id={this.props.scope + '_score'}
+          type="range" min="1" max="5" onChange={this.updateScoreLabel} />
+        <label className="score-block score-picker-label" id={this.props.scope + '_label'}>OK</label>
+        <label className="score-block score-comment-label">Why did you choose that score?</label>
+        <textarea className="score-block score-comment" id={this.props.scope + '_comment'}></textarea>
         <hr/>
       </div>
     );

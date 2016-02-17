@@ -9,7 +9,7 @@ const Welcome = React.createClass({
       <div>
         <h1>Get better today with Score Builder</h1>
         <h2>Click to start a new retrospective session</h2>
-        <button onClick={this.session}>Go</button>
+        <button type="button" className="btn btn-primary" onClick={this.session}>Go</button>
       </div>
     );
   }

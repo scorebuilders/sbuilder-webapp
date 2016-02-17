@@ -1,3 +1,5 @@
+import './styles/screen.less';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 

@@ -9,11 +9,11 @@ const Score = React.createClass({
   },
   render() {
     return (
-      <div>
+      <div className="score-form">
         <ScoreInput scope="own"/>
         <ScoreInput scope="team"/>
         <ScoreInput scope="company"/>
-        <button onClick={this.submitScores}>I'm Finished</button>
+        <button className="btn btn-success" onClick={this.submitScores}>I'm Finished</button>
       </div>
     );
   }
