@@ -20,10 +20,13 @@ module.exports = {
       include: path.join(__dirname, 'src'),
       loader: 'eslint-loader'
     }],
-    loaders: [
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
-      {
+    loaders: [{
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url-loader?limit=10000&minetype=application/font-woff"
+    }, {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "file-loader"
+    }, {
       test: /\.js$/,
       include: path.join(__dirname, 'src'),
       loader: 'babel',
