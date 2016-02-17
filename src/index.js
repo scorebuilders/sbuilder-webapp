@@ -30,7 +30,7 @@ const App = React.createClass({
   render() {
     return (
       <div className="layout-wrapper">
-        <header>Score Builder</header>
+        <header><a href="/">Score Builder</a></header>
         {this.props.children && React.cloneElement(this.props.children,
           {createSession: this.createSession})}
       </div>

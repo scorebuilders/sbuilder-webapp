@@ -17,11 +17,11 @@ const ScoreInput = React.createClass({
   render() {
     return (
       <div className="scope-input">
-        <div className="score-block scope-label">Score your <strong>{this.props.scope}</strong> work.</div>
+        <div className="score-block scope-label">Score your <mark>{this.props.scope}</mark> work.</div>
         <input className="score-block score-picker" id={this.props.scope + '_score'}
           type="range" min="1" max="5" onChange={this.updateScoreLabel} />
         <label className="score-block score-picker-label" id={this.props.scope + '_label'}>OK</label>
-        <label className="score-block score-comment-label">Why did you choose that score?</label>
+        <label className="text-muted score-block score-comment-label">Explain your score</label>
         <textarea className="score-block score-comment" id={this.props.scope + '_comment'}></textarea>
         <hr/>
       </div>
