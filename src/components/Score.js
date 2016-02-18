@@ -3,41 +3,42 @@ import { browserHistory } from 'react-router';
 
 import ScoreInput from './ScoreInput.js';
 
-const pushPayload = {
-  sessionId: null,
-  scopes: {}
-};
-
 const Score = React.createClass({
-  updatePushPayload(scope, score, comment) {
-    pushPayload.sessionId = this.props.params.sessionId;
-    pushPayload.scopes[scope] = pushPayload.scopes[scope] || {};
-    pushPayload.scopes[scope].score = score;
-    pushPayload.scopes[scope].comment = comment;
+  getInitialState() {
+    return {
+      scores: {}
+    };
   },
-  submitScores() {
+  saveScore() {
     // TODO: validation - pk2
+    const data = JSON.stringify({
+      sessionId: this.state.sessionId,
+      scopes: this.state.scores
+    });
     fetch('http://localhost:3000/api/score', {
       method: 'post',
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json'
       },
-      body: JSON.stringify(pushPayload)
+      body: data
     })
     .then(() => {
-      browserHistory.push('/d/' + this.props.params.sessionId);
-    }).catch(() => {
-      // console.log(resp, 'a bad thing happened');
+      browserHistory.push('/d/' + this.state.sessionId);
     });
+    // removing catch until we're pushing this to prod. - pk
+  },
+  updateScore(scope, values) {
+    this.state.scores[scope] = this.state.scores[scope] || {};
+    this.state.scores[scope] = values;
   },
   render() {
     return (
       <div className="score-form">
-        <ScoreInput updatePayload={this.updatePushPayload} scope="own"/>
-        <ScoreInput updatePayload={this.updatePushPayload} scope="team"/>
-        <ScoreInput updatePayload={this.updatePushPayload} scope="company"/>
-        <button className="btn btn-success" onClick={this.submitScores}>I'm Finished</button>
+        <ScoreInput updateScore={this.updateScore} scope="own"/>
+        <ScoreInput updateScore={this.updateScore} scope="team"/>
+        <ScoreInput updateScore={this.updateScore} scope="company"/>
+        <button className="btn btn-success" onClick={this.saveScore}>I'm Finished</button>
       </div>
     );
   }
