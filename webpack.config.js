@@ -46,6 +46,9 @@ module.exports = {
     }]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      'window.fetch': 'exports?self.fetch!whatwg-fetch'
+    }),
     new webpack.NoErrorsPlugin()
   ]
 };
