@@ -10,19 +10,26 @@ const sliderValues = {
 };
 
 const ScoreInput = React.createClass({
+  update(e) {
+    if (e.target.classList.contains('score-picker')) {
+      this.updateScoreLabel(e);
+    }
+    this.props.updateScore(this.props.scope, {
+      score: this.refs.scorePicker.value,
+      comment: this.refs.scoreComment.value
+    });
+  },
   updateScoreLabel(e) {
-    const labelId = this.props.scope + '_label';
-    document.getElementById(labelId).textContent = sliderValues[e.target.value];
+    this.refs.scorePickerLabel.textContent = sliderValues[e.target.value];
   },
   render() {
     return (
       <div className="scope-input">
         <div className="score-block scope-label">Score your <mark>{this.props.scope}</mark> work.</div>
-        <input className="score-block score-picker" id={this.props.scope + '_score'}
-          type="range" min="1" max="5" onChange={this.updateScoreLabel} />
-        <label className="score-block score-picker-label" id={this.props.scope + '_label'}>OK</label>
+        <input ref="scorePicker" type="range" min="1" max="5" onChange={this.update} className="score-block score-picker" />
+        <label ref="scorePickerLabel" className="score-block score-picker-label">{sliderValues[3]}</label>
         <label className="text-muted score-block score-comment-label">Explain your score</label>
-        <textarea className="score-block score-comment" id={this.props.scope + '_comment'}></textarea>
+        <textarea ref="scoreComment" onChange={this.update} className="score-block score-comment"></textarea>
         <hr/>
       </div>
     );
