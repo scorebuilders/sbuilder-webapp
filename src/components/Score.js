@@ -11,6 +11,7 @@ const Score = React.createClass({
   },
   saveScore() {
     // TODO: validation - pk2
+    const sessionId = this.props.params.sessionId;
     const data = JSON.stringify({
       sessionId: this.state.sessionId,
       scopes: this.state.scores
@@ -24,7 +25,7 @@ const Score = React.createClass({
       body: data
     })
     .then(() => {
-      browserHistory.push('/d/' + this.state.sessionId);
+      browserHistory.push('/d/' + sessionId);
     });
     // removing catch until we're pushing this to prod. - pk
   },
