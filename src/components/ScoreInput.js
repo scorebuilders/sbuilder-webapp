@@ -26,7 +26,8 @@ const ScoreInput = React.createClass({
     return (
       <div className="scope-input">
         <div className="score-block scope-label">Score your <mark>{this.props.scope}</mark> work.</div>
-        <input ref="scorePicker" type="range" min="1" max="5" onChange={this.update} className="score-block score-picker" />
+        <input ref="scorePicker" type="range" min="1" max="5" onChange={this.update}
+               className="score-block score-picker" />
         <label ref="scorePickerLabel" className="score-block score-picker-label">{sliderValues[3]}</label>
         <label className="text-muted score-block score-comment-label">Explain your score</label>
         <textarea ref="scoreComment" onChange={this.update} className="score-block score-comment"></textarea>
