@@ -12,18 +12,15 @@ import NotFound from './components/NotFound';
 
 const App = React.createClass({
   getInitialState() {
-    return {
-      sessionId: null
-    };
+    return {sessionId: null};
   },
   createSession() {
     fetch('http://localhost:3000/api/session/new')
     .then(resp => resp.json())
     .then(resp => {
-      this.setState({ sessionId: resp.sessionId });
+      this.setState({sessionId: resp.sessionId});
       browserHistory.push('/s/' + resp.sessionId);
     });
-    // hiding catch until we want it - pk2
   },
   render() {
     return (
@@ -41,7 +38,7 @@ ReactDOM.render((
     <Route path="/" component={App}>
       <IndexRoute component={Welcome} />
       <Route path="s/:sessionId" component={Score} />
-      <Route path="d/:sessionId" component={Discuss} />
+      <Route path="d/:sessionId" component={Summary} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>

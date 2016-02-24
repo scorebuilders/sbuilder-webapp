@@ -10,10 +10,10 @@ const Score = React.createClass({
     };
   },
   saveScore() {
-    // TODO: validation - pk2
+    debugger;
     const sessionId = this.props.params.sessionId;
     const data = JSON.stringify({
-      sessionId: this.state.sessionId,
+      sessionId: sessionId,
       scopes: this.state.scores
     });
     fetch('http://localhost:3000/api/score', {
@@ -27,7 +27,6 @@ const Score = React.createClass({
     .then(() => {
       browserHistory.push('/d/' + sessionId);
     });
-    // removing catch until we're pushing this to prod. - pk
   },
   updateScore(scope, values) {
     this.state.scores[scope] = this.state.scores[scope] || {};
