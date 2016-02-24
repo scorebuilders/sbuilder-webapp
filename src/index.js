@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import Welcome from './components/Welcome';
 import Score from './components/Score';
-import Discuss from './components/Discuss';
+import Summary from './components/Summary';
 import NotFound from './components/NotFound';
 
 const App = React.createClass({
