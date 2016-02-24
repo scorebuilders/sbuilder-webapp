@@ -10,7 +10,6 @@ const Score = React.createClass({
     };
   },
   saveScore() {
-    debugger;
     const sessionId = this.props.params.sessionId;
     const data = JSON.stringify({
       sessionId: sessionId,

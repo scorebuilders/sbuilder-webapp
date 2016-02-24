@@ -1,22 +1,33 @@
 import React from 'react';
+import _ from 'lodash';
 
-/**
-  initial view, "go" button
-*/
+import SummaryScope from './SummaryScope.js';
 
 const Summary = React.createClass({
+  getInitialState() {
+    return {summary: []};
+  },
   componentDidMount() {
+    this.fetchScore.call(this);
+    setInterval(() => {
+      this.fetchScore.call(this);
+    }, 2000);
+  },
+  fetchScore() {
     fetch(`http://localhost:3000/api/report/${this.props.params.sessionId}`)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp);
-      // this.setState({ sessionId: resp.sessionId });
+      this.setState({summary: resp});
     });
   },
   render() {
+    const scoreScopes = _.map(this.state.summary.scopes, (scope, key) => {
+      return <SummaryScope key={key} scope={scope}/>;
+    });
     return (
       <div>
-        <p>"Report" page where you can discuss results.</p>
+        <p>"Session Summary" page where you can discuss results.</p>
+        {scoreScopes}
       </div>
     );
   }
