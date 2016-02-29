@@ -1,9 +1,9 @@
 import React from 'react';
-import _ from 'lodash';
+import map from 'lodash/map';
 
 const SummaryScope = React.createClass({
   render() {
-    const scoreList = _.map(this.props.scope.scores, (s) => {
+    const scoreList = map(this.props.scope.scores, (s) => {
       return (
         <div key={s.score + s.comment}>
           <div>Score: {s.score}</div>

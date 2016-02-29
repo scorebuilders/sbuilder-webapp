@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import map from 'lodash/map';
 
 import SummaryScope from './SummaryScope.js';
 
@@ -21,7 +21,7 @@ const Summary = React.createClass({
     });
   },
   render() {
-    const scoreScopes = _.map(this.state.summary.scopes, (scope, key) => {
+    const scoreScopes = map(this.state.summary.scopes, (scope, key) => {
       return <SummaryScope key={key} scope={scope}/>;
     });
     return (
