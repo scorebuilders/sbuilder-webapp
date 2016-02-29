@@ -7,7 +7,7 @@ const Summary = React.createClass({
   getInitialState() {
     return {summary: []};
   },
-  componentDidMount() {
+  componentWillMount() {
     this.fetchScore.call(this);
     setInterval(() => {
       this.fetchScore.call(this);
